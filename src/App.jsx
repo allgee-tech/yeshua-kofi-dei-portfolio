@@ -13,6 +13,7 @@ import {
   X,
 } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
+import { Analytics } from "@vercel/analytics/react";
 
 const emailAddress = "deiyeshua05@gmail.com";
 const linkedinUrl = "https://linkedin.com/in/yeshuadei-244b87321";
@@ -664,6 +665,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <Analytics />
     </>
   );
 }
