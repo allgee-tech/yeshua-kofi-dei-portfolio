@@ -95,6 +95,8 @@ const decodeLabsProjects = [
     shortDescription:
       "A Python conversation exercise built around predefined rules, conditions and response handling.",
     accent: "chatbot",
+    image: "/assets/projects/ai-interface.jpg",
+    imageAlt: "Abstract blue technology display representing a digital interface",
     tags: ["Python", "Conditional logic", "Conversation flow"],
     overview:
       "This foundational project explores how a conversational system can interpret user input and return an appropriate response without a trained language model.",
@@ -121,6 +123,8 @@ const decodeLabsProjects = [
     shortDescription:
       "A supervised learning workflow that classifies Iris species from numerical flower measurements.",
     accent: "iris",
+    image: "/assets/projects/iris-flower.jpg",
+    imageAlt: "Close-up of an Iris flower used as the classification subject",
     tags: ["Python", "scikit-learn", "KNN", "Pandas", "Matplotlib"],
     repoUrl: "https://github.com/allgee-tech/decodelabs-iris-classification",
     overview:
@@ -149,6 +153,8 @@ const decodeLabsProjects = [
     shortDescription:
       "A book recommendation application developed to explore recommendation logic and evaluation.",
     accent: "recommend",
+    image: "/assets/projects/smartrecommend-books.jpg",
+    imageAlt: "Open book beside a laptop and smartphone representing book discovery",
     tags: ["Python", "Pandas", "Recommendation logic", "Evaluation"],
     overview:
       "SmartRecommend AI explores how recommendation systems can help people discover relevant books through a functional application and measurable evaluation.",
@@ -182,6 +188,8 @@ const decodeLabsProjects = [
     shortDescription:
       "A Python OCR application that extracts machine-readable text from uploaded images.",
     accent: "vision",
+    image: "/assets/projects/smartvision-ocr.jpg",
+    imageAlt: "Phone and handwritten document representing image-to-text capture",
     tags: ["Python", "OpenCV", "Tesseract", "Streamlit"],
     repoUrl: "https://github.com/allgee-tech/Decodelabs_Project_4_SmartVision_AI",
     overview:
@@ -511,7 +519,8 @@ function CaseStudyModal({ project, onClose }) {
 function DecodeLabsCard({ project, onOpen, delay = 0 }) {
   return (
     <Reveal className={`decode-card decode-card-${project.accent}`} delay={delay}>
-      <div className="decode-card-art" aria-hidden="true">
+      <div className="decode-card-art">
+        <img src={project.image} alt={project.imageAlt} loading="lazy" decoding="async" />
         <span className="decode-card-number">{project.number}</span>
         <span className="decode-card-symbol">{project.accent === "chatbot" ? "?" : project.accent === "iris" ? "✳" : project.accent === "recommend" ? "↗" : "⌁"}</span>
         <span className="decode-card-stamp">DECODELABS / 2026</span>

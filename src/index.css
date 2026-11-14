@@ -813,11 +813,13 @@ body::before {
 .decode-card:hover { transform: translateY(-8px) scale(1.01); border-color: #2f7dff80; box-shadow: 0 28px 70px #0008, 0 0 40px #2f7dff1f, inset 0 1px #ffffff25; }
 .decode-card:hover::after { opacity: 1; animation: glass-sheen 1s ease forwards; }
 .decode-card-art { background: radial-gradient(circle at 50% 46%, #2f7dff, #0d2a77 55%, #060a17); }
+.decode-card-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .58; mix-blend-mode: screen; filter: saturate(.72) contrast(1.08); transition: transform .7s ease, opacity .35s ease, filter .35s ease; }
+.decode-card-art::after { inset: 0; z-index: 1; width: auto; height: auto; transform: none; border: 0; border-radius: 0; background: linear-gradient(145deg, #02040dcc 0%, transparent 46%, #ff2fa43d 100%); }
+.decode-card:hover .decode-card-art img { transform: scale(1.08); opacity: .78; filter: saturate(1.05) contrast(1.12); }
 .decode-card-iris .decode-card-art { background: radial-gradient(circle at 50% 46%, #387dff, #102e80 55%, #07102a); }
 .decode-card-recommend .decode-card-art { background: radial-gradient(circle at 50% 46%, #ff3aa5, #7d1756 55%, #22051a); }
 .decode-card-vision .decode-card-art { background: radial-gradient(circle at 50% 46%, #34a9ff, #16436f 55%, #061423); }
-.decode-card-art::before, .decode-card-art::after { border-color: #8bb5ff75; }
-.decode-card-art::after { border-color: #ff2fa46b; }
+.decode-card-art::before { z-index: 2; border-color: #8bb5ff75; }
 .decode-card-symbol { color: var(--paper); text-shadow: 0 0 22px #2f7dff, 0 0 40px #ff2fa466; animation: neon-float 5s ease-in-out infinite; }
 .decode-card-number { color: #c4d8ff; }
 .decode-card-stamp { color: #dce8ff; }
