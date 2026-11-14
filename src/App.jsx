@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ArrowDown,
   ArrowDownRight,
@@ -85,6 +85,129 @@ const certifications = [
   "Prompt Engineering for AI Applications",
   "Public Speaking with Canva",
   "Build a Free Website with WordPress",
+];
+
+const decodeLabsProjects = [
+  {
+    number: "01",
+    title: "Rule-based AI chatbot",
+    category: "Artificial Intelligence / Conversational Systems",
+    shortDescription:
+      "A Python conversation exercise built around predefined rules, conditions and response handling.",
+    accent: "chatbot",
+    tags: ["Python", "Conditional logic", "Conversation flow"],
+    overview:
+      "This foundational project explores how a conversational system can interpret user input and return an appropriate response without a trained language model.",
+    problem: "Understanding how conversational systems respond to user inputs.",
+    objective: "Build a basic interactive chatbot.",
+    technologies: "Python.",
+    methodology:
+      "Start with a small set of expected inputs, map those inputs to responses, and iterate through the conversation flow as edge cases appear.",
+    implementation:
+      "The chatbot uses predefined patterns, conditional branches and response handling to match a user’s input with a suitable reply. Its flow is intentionally transparent: receive input, evaluate the rules, return a response, and continue until the conversation ends.",
+    results:
+      "A working interactive conversation prototype that makes the relationship between input, logic and output visible.",
+    challenges:
+      "Designing useful responses while accounting for inputs that do not exactly match the predefined patterns.",
+    lessons:
+      "Conditional logic, user input handling and foundational conversational AI concepts.",
+    limitations:
+      "Rule-based systems depend on predefined patterns and are not equivalent to advanced language models. Future work could add broader intent coverage, safer fallback responses and a more maintainable rule structure.",
+  },
+  {
+    number: "02",
+    title: "Iris flower classification",
+    category: "Machine Learning / Classification",
+    shortDescription:
+      "A supervised learning workflow that classifies Iris species from numerical flower measurements.",
+    accent: "iris",
+    tags: ["Python", "scikit-learn", "KNN", "Pandas", "Matplotlib"],
+    repoUrl: "https://github.com/allgee-tech/decodelabs-iris-classification",
+    overview:
+      "The project uses the built-in Iris dataset to explore a complete, reproducible classification workflow from data inspection to model evaluation.",
+    problem: "Classifying flower species from measured characteristics.",
+    objective: "Implement a supervised machine learning classification workflow.",
+    dataset: "Iris flower dataset: four numerical measurements and three species labels.",
+    technologies: "Python, scikit-learn, Pandas and Matplotlib.",
+    methodology:
+      "Inspect the dataset, preserve class proportions during a reproducible train/test split, scale features from the training data, train a classifier, and evaluate its predictions.",
+    implementation:
+      "The implementation loads Iris with scikit-learn, organizes the measurements in a Pandas DataFrame, and splits the data with 20% reserved for testing, `random_state=42`, and `stratify=y`. `StandardScaler` is fitted on the training features and reused for the test set. A K-Nearest Neighbors classifier with `n_neighbors=5` is then trained on the scaled data.",
+    results:
+      "The script computes test-set accuracy, prints actual versus predicted labels, generates a confusion matrix, and produces a classification report. The repository does not document a fixed numeric result in a README, so no accuracy score is presented here as a verified portfolio metric.",
+    challenges:
+      "Keeping preprocessing consistent between training and test data, while making the evaluation output understandable.",
+    lessons:
+      "Dataset handling, feature scaling, classification, model evaluation and core machine learning workflow design.",
+    limitations:
+      "The result is based on a small, familiar dataset and a single train/test split. Future work could compare additional classifiers, use cross-validation and report a fuller set of reproducible metrics.",
+  },
+  {
+    number: "03",
+    title: "SmartRecommend AI",
+    category: "Artificial Intelligence / Recommendation Systems",
+    shortDescription:
+      "A book recommendation application developed to explore recommendation logic and evaluation.",
+    accent: "recommend",
+    tags: ["Python", "Pandas", "Recommendation logic", "Evaluation"],
+    overview:
+      "SmartRecommend AI explores how recommendation systems can help people discover relevant books through a functional application and measurable evaluation.",
+    problem: "Helping users discover books based on recommendation logic.",
+    objective: "Build and evaluate a functional recommendation application.",
+    technologies: "Python, Pandas and the project’s recommendation and evaluation libraries. The source repository URL and implementation files were not supplied for verification.",
+    methodology:
+      "The portfolio records the supplied evaluation results as the project’s reported benchmark. The underlying recommendation approaches and experiments should be read from the project source before making more specific technical claims.",
+    implementation:
+      "The available project brief confirms a functional book recommendation interface. Because a repository URL was not provided, this case study does not infer whether the implementation is content-based, collaborative, hybrid, or based on another approach.",
+    results:
+      "The supplied evaluation results are shown below. They indicate useful baseline behavior, not perfect or universally relevant recommendations.",
+    metrics: [
+      ["Precision@K", "0.4000", "The share of recommended items that were relevant."],
+      ["Recall@K", "0.6667", "The share of relevant items that the recommendations recovered."],
+      ["F1 Score", "0.5000", "A balance between precision and recall."],
+      ["Catalogue Coverage", "0.7143", "The proportion of the catalogue surfaced by the system."],
+      ["RMSE", "0.4082", "The average size of prediction error, with larger errors weighted more heavily."],
+    ],
+    challenges:
+      "Balancing relevance with catalogue variety, and selecting evaluation measures that describe different parts of recommendation quality.",
+    lessons:
+      "Recommendation evaluation, metric interpretation and the importance of distinguishing relevance from coverage.",
+    limitations:
+      "The reported metrics are bounded by the available test data and do not establish perfect recommendations. Add the repository URL and source-level experiment details before publishing a deeper implementation account; future work could also compare baselines and tune the recommendation strategy.",
+  },
+  {
+    number: "04",
+    title: "SmartVision AI",
+    category: "Computer Vision / Optical Character Recognition",
+    shortDescription:
+      "A Python OCR application that extracts machine-readable text from uploaded images.",
+    accent: "vision",
+    tags: ["Python", "OpenCV", "Tesseract", "Streamlit"],
+    repoUrl: "https://github.com/allgee-tech/Decodelabs_Project_4_SmartVision_AI",
+    overview:
+      "SmartVision AI combines image preprocessing with Tesseract OCR in a Streamlit interface so users can upload an image, inspect processing stages, review extracted text and download the result.",
+    problem: "Turning text inside everyday images into machine-readable content.",
+    objective: "Build an approachable OCR workflow and make its output and confidence estimates visible to the user.",
+    technologies: "Python, Streamlit, OpenCV, NumPy, Pandas, Tesseract OCR and Pytesseract.",
+    methodology:
+      "Decode the uploaded image, prepare it through a consistent preprocessing pipeline, run OCR, expose word-level confidence values, and test the workflow against several image conditions.",
+    implementation:
+      "OpenCV converts the image to grayscale, applies a 5×5 Gaussian Blur, and uses Gaussian adaptive thresholding with block size 11 and constant 2. Pytesseract calls Tesseract with English OCR (`--oem 3 --psm 6`), extracts word-level confidence values, excludes blank and -1 entries, and calculates the average of the remaining valid scores. Streamlit provides upload, preview, result and download interactions.",
+    results:
+      "Reported testing results show strong confidence on the supplied document-style samples and a clear drop on a real-world photograph. OCR confidence is Tesseract’s estimate, not a guarantee that every recognized word is correct.",
+    confidenceResults: [
+      ["Printed document", "95.0%"],
+      ["Receipt", "93.9%"],
+      ["Uneven lighting sample", "95.9%"],
+      ["Real WhatsApp photograph", "61.3%"],
+    ],
+    challenges:
+      "Making text extraction resilient to noise, lighting, focus, layout and the difference between generated test samples and real camera photographs.",
+    lessons:
+      "Image preprocessing, OCR integration, confidence extraction, Streamlit interface design and honest interpretation of model-adjacent output.",
+    limitations:
+      "OCR quality varies with resolution, focus, contrast, orientation, font and layout. The fixed preprocessing settings and English-only default can miss difficult cases. Future improvements include deskewing, rotation correction, selectable thresholding methods, ground-truth accuracy checks and regression tests.",
+  },
 ];
 
 function Reveal({ children, className = "", delay = 0, ...props }) {
@@ -293,7 +416,122 @@ function ProjectMeta({ number, category, year }) {
   );
 }
 
+function CaseStudySection({ title, children }) {
+  return (
+    <section className="case-study-section">
+      <h3>{title}</h3>
+      <div>{children}</div>
+    </section>
+  );
+}
+
+function CaseStudyModal({ project, onClose }) {
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") onClose();
+    };
+
+    document.body.classList.add("case-study-open");
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.classList.remove("case-study-open");
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [onClose]);
+
+  return (
+    <div className="case-study-overlay" role="presentation" onMouseDown={(event) => {
+      if (event.target === event.currentTarget) onClose();
+    }}>
+      <article
+        className="case-study-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="case-study-title"
+      >
+        <div className="case-study-topline">
+          <span>{project.number} / DECODELABS AI PROJECTS</span>
+          <button className="case-study-close" type="button" onClick={onClose} aria-label="Close case study">
+            Close <X size={18} />
+          </button>
+        </div>
+        <div className="case-study-hero">
+          <div>
+            <span className="display-kicker">{project.category}</span>
+            <h2 id="case-study-title">{project.title}</h2>
+          </div>
+          <p>{project.overview}</p>
+        </div>
+        <div className="case-study-grid">
+          <CaseStudySection title="Problem"><p>{project.problem}</p></CaseStudySection>
+          <CaseStudySection title="Objective"><p>{project.objective}</p></CaseStudySection>
+          {project.dataset && <CaseStudySection title="Dataset"><p>{project.dataset}</p></CaseStudySection>}
+          <CaseStudySection title="Technologies"><p>{project.technologies}</p></CaseStudySection>
+          <CaseStudySection title="Development methodology"><p>{project.methodology}</p></CaseStudySection>
+          <CaseStudySection title="Technical implementation"><p>{project.implementation}</p></CaseStudySection>
+          <CaseStudySection title="Results & evaluation">
+            <p>{project.results}</p>
+            {project.metrics && (
+              <div className="metrics-dashboard" aria-label="SmartRecommend AI evaluation metrics">
+                {project.metrics.map(([label, value, explanation]) => (
+                  <div className="metric-card" key={label}>
+                    <span>{label}</span><strong>{value}</strong><small>{explanation}</small>
+                  </div>
+                ))}
+              </div>
+            )}
+            {project.confidenceResults && (
+              <div className="confidence-results" aria-label="SmartVision AI confidence comparison">
+                {project.confidenceResults.map(([label, value]) => (
+                  <div className="confidence-row" key={label}>
+                    <span>{label}</span><strong>{value}</strong>
+                    <span className="confidence-bar"><i style={{ width: value }} /></span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </CaseStudySection>
+          <CaseStudySection title="Challenges encountered"><p>{project.challenges}</p></CaseStudySection>
+          <CaseStudySection title="Lessons learned"><p>{project.lessons}</p></CaseStudySection>
+          <CaseStudySection title="Limitations & future improvements"><p>{project.limitations}</p></CaseStudySection>
+        </div>
+        {project.repoUrl && (
+          <a className="case-study-repo" href={project.repoUrl} target="_blank" rel="noopener noreferrer">
+            View verified GitHub repository <ArrowUpRight size={17} />
+          </a>
+        )}
+        <button className="case-study-back" type="button" onClick={onClose}>
+          <ArrowDown size={16} /> Back to DecodeLabs projects
+        </button>
+      </article>
+    </div>
+  );
+}
+
+function DecodeLabsCard({ project, onOpen, delay = 0 }) {
+  return (
+    <Reveal className={`decode-card decode-card-${project.accent}`} delay={delay}>
+      <div className="decode-card-art" aria-hidden="true">
+        <span className="decode-card-number">{project.number}</span>
+        <span className="decode-card-symbol">{project.accent === "chatbot" ? "?" : project.accent === "iris" ? "✳" : project.accent === "recommend" ? "↗" : "⌁"}</span>
+        <span className="decode-card-stamp">DECODELABS / 2026</span>
+      </div>
+      <div className="decode-card-body">
+        <span className="decode-card-category">{project.category}</span>
+        <h3>{project.title}</h3>
+        <p>{project.shortDescription}</p>
+        <div className="project-tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+        <button className="project-link case-study-trigger" type="button" onClick={() => onOpen(project)}>
+          View case study <ArrowUpRight size={17} />
+        </button>
+      </div>
+    </Reveal>
+  );
+}
+
 function Projects() {
+  const [selectedProject, setSelectedProject] = useState(null);
+
   return (
     <section className="work-section section-pad" id="work">
       <SectionLabel number="02" light>SELECTED WORK</SectionLabel>
@@ -404,10 +642,26 @@ function Projects() {
           </div>
         </div>
       </Reveal>
+
+      <div className="decode-labs-intro">
+        <div>
+          <span className="display-kicker">2026 / ARTIFICIAL INTELLIGENCE INDUSTRIAL TRAINING</span>
+          <h2>Four projects. One <em>evolving journey</em> into AI.</h2>
+        </div>
+        <p>
+          From rule-based conversations to machine perception, these projects document my practical learning and implementation experience during the DecodeLabs Artificial Intelligence Industrial Training Programme.
+        </p>
+      </div>
+      <div className="decode-project-grid">
+        {decodeLabsProjects.map((project, index) => (
+          <DecodeLabsCard key={project.number} project={project} onOpen={setSelectedProject} delay={index * 0.04} />
+        ))}
+      </div>
       <p className="work-note">
         <span>IN PROGRESS, ON PURPOSE.</span>
         More work will appear as I keep making.
       </p>
+      {selectedProject && <CaseStudyModal project={selectedProject} onClose={() => setSelectedProject(null)} />}
     </section>
   );
 }
