@@ -4,18 +4,18 @@
 
 :root {
   font-family: "DM Sans", sans-serif;
-  color: #211a14;
-  background: #f1ece3;
+  color: #eef4ff;
+  background: #050609;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  --ink: #15120f;
-  --paper: #f1ece3;
-  --paper-dark: #e7e0d5;
-  --rust: #b64c20;
-  --amber: #f4a949;
-  --muted: #71695f;
-  --line: #211a1426;
+  --ink: #050609;
+  --paper: #eef4ff;
+  --paper-dark: #0e1320;
+  --rust: #ff2fa4;
+  --amber: #2f7dff;
+  --muted: #9aa5c2;
+  --line: #ffffff1c;
   --display: "Barlow Condensed", Impact, sans-serif;
   --body: "DM Sans", sans-serif;
 }
